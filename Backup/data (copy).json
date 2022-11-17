@@ -1,0 +1,181 @@
+[{
+  "Name": "Fledermaus",
+  "Anzahl Beine": 2,
+  "Extremitäten": "Flügelbein",
+  "Körperbedeckung": "Fell",
+  "Element": "Luft",
+  "Ernährung": "Alles",
+  "Art": "1",
+  "Aktiv": "Nacht"
+ },
+ {
+  "Name": "Hund",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Fell",
+  "Element": "Land",
+  "Ernährung": "Alles",
+  "Art": "1",
+  "Aktiv": "Tag"
+ },
+ {
+  "Name": "Katze",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Fell",
+  "Element": "Land",
+  "Ernährung": "Fleisch",
+  "Art": "1",
+  "Aktiv": "Tag\/Nacht"
+ },
+ {
+  "Name": "Pferd",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Fell",
+  "Element": "Land",
+  "Ernährung": "Pflanzen",
+  "Art": "1",
+  "Aktiv": "Tag"
+ },
+ {
+  "Name": "Schwein",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Fell",
+  "Element": "Land",
+  "Ernährung": "Alles",
+  "Art": "1",
+  "Aktiv": "Tag"
+ },
+ {
+  "Name": "Mensch",
+  "Anzahl Beine": 2,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Haut",
+  "Element": "Land",
+  "Ernährung": "Alles",
+  "Art": "1",
+  "Aktiv": "Tag"
+ },
+ {
+  "Name": "Wal ",
+  "Anzahl Beine": 0,
+  "Extremitäten": "Flossen",
+  "Körperbedeckung": "Haut",
+  "Element": "Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "1",
+  "Aktiv": "Tag\/Nacht"
+ },
+ {
+  "Name": "Maus",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Fell",
+  "Element": "Land",
+  "Ernährung": "Alles",
+  "Art": "1",
+  "Aktiv": "Tag\/Nacht"
+ },
+ {
+  "Name": "Hai",
+  "Anzahl Beine": 0,
+  "Extremitäten": "Flossen",
+  "Körperbedeckung": "Haut",
+  "Element": "Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "3",
+  "Aktiv": "Nacht"
+ },
+ {
+  "Name": "Seepferdchen",
+  "Anzahl Beine": 0,
+  "Extremitäten": "Flossen",
+  "Körperbedeckung": "Haut",
+  "Gewicht": 0.015,
+  "Element": "Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "3",
+  "Aktiv": "Tag"
+ },
+ {
+  "Name": "Rochen",
+  "Anzahl Beine": 0,
+  "Extremitäten": "Flossen",
+  "Körperbedeckung": "Haut",
+  "Element": "Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "3",
+  "Aktiv": "Nacht"
+ },
+ {
+  "Name": "Muräne",
+  "Anzahl Beine": 0,
+  "Extremitäten": "Keine",
+  "Körperbedeckung": "Haut",
+  "Element": "Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "3",
+  "Aktiv": "Nacht"
+ },
+ {
+  "Name": "Frosch",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Haut",
+  "Element": "Land\/Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "6",
+  "Aktiv": "Nacht"
+ },
+ {
+  "Name": "Eidechse",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Haut",
+  "Element": "Land\/Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "6",
+  "Aktiv": "Tag"
+ },
+ {
+  "Name": "Krokodil",
+  "Anzahl Beine": 4,
+  "Extremitäten": "Beine",
+  "Körperbedeckung": "Schuppen",
+  "Element": "Land\/Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "4",
+  "Aktiv": "Nacht"
+ },
+ {
+  "Name": "Schlange",
+  "Anzahl Beine": 0,
+  "Extremitäten": "Keine",
+  "Körperbedeckung": "Schuppen",
+  "Element": "Land\/Wasser",
+  "Ernährung": "Fleisch",
+  "Art": "4",
+  "Aktiv": "Tag\/Nacht"
+ },
+ {
+  "Name": "Fliege",
+  "Anzahl Beine": 6,
+  "Extremitäten": "Flügelbein",
+  "Körperbedeckung": "Chitinpanzer",
+  "Element": "Land",
+  "Ernährung": "Alles",
+  "Art": "5",
+  "Aktiv": "Tag"
+ },
+ {
+  "Name": "Papagei",
+  "Anzahl Beine": 2,
+  "Extremitäten": "Flügelbein",
+  "Körperbedeckung": "Federn",
+  "Element": "Land",
+  "Ernährung": "Alles",
+  "Art": "2",
+  "Aktiv": "Tag"
+ }]

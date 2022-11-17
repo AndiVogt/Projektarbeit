@@ -1,0 +1,133 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, sans-serif;
+  overflow-x: hidden;
+}
+h1 {
+  font-size: 70px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#answer {
+  text-align: center;
+}
+
+input[class="answja"]:hover + svg,
+input[class="answja"]:checked + svg,
+input[class="answja"]:focus + svg {
+  fill: rgb(0, 204, 79);
+}
+
+input[class="answnein"]:hover + svg,
+input[class="answnein"]:checked + svg,
+input[class="answnein"]:focus + svg {
+  fill: rgb(239, 42, 16);
+}
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  height: 6em;
+}
+
+input[type="radio"] + svg {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.svg1, input{
+  cursor: pointer;
+  width: 6em;
+  margin: 10px;
+}
+
+#btn {
+  padding: 11px 21px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  line-height: 1.25;
+  background: #ff5e3d;
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  overflow: hidden;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+#btn:hover {
+  background: #ff441f;
+}
+
+#button {
+  margin: 20px auto;
+}
+
+#answer {
+  margin-top: auto;
+}
+#button {
+  margin-bottom: 30px;
+}
+
+#svgaddbtn {
+  fill: #4d4dff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#svgaddbtn:hover {
+  fill: #2929ff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px;
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+.label {
+  width: 300px;
+  text-align: left;
+  display: inline-block;
+  
+}
+.content {
+  display: inline-block;
+}
+
+
+.formular {
+  margin: auto;
+  text-align: center;
+  align-content: 
+}
+
+
+
+
+#addanimal {
+  margin: 0px;
+  padding: 0px;
+}

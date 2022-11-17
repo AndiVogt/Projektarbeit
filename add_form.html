@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="formular">
+    <h1>Tier hinzufügen:</h1>
+    <form action="/process" method="post">
+      <div class="label">
+        <label for="name">Tiername: </label>
+      </div>
+      <div class="content">
+        <input class="dropdown" type="text" name="name" id="name"><br>
+      </div>
+
+      <div class="wrapper">
+        <!-- alle anderen wie diesen div-->
+        <div class="label">
+          <label for="extremitaeten">Extremitäten: </label>
+        </div>
+        <div class="content">
+          <select class="dropdown" name="extremitaeten" id="extremitaeten">
+            <option value="1">Keine</option>
+            <option value="2">Beine</option>
+            <option value="3">Flossen</option>
+            <option value="4">Flügel</option>
+            <option value="5">Flügel / Beine</option>
+          </select><br>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="label">
+          <label for="anzbeine">Anzahl Beine: </label>
+        </div>
+        <div class="content">
+          <select class="dropdown" name="anzbeine" id="anzbeine">
+            <option value="1">0</option>
+            <option value="2">2</option>
+            <option value="3">4</option>
+            <option value="4">6</option>
+            <option value="5">8</option>
+          </select><br>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">
+          <label for="Art">Art: </label>
+        </div>
+        <div class="content">
+          <select class="dropdown" name="art" id="art">
+            <option value="1">Säuger</option>
+            <option value="2">Vogel</option>
+            <option value="3">Fisch</option>
+            <option value="4">Kriechtier</option>
+            <option value="5">Insekt</option>
+            <option value="6">Lurch</option>
+          </select><br>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">
+          <label for="koerperbedeckung">Körperbedeckung: </label>
+        </div>
+        <div class="content">
+          <select class="dropdown" name="koerperbedeckung" id="koerperbedeckung">
+            <option value="1">Fell</option>
+            <option value="2">Federn</option>
+            <option value="3">Haut</option>
+            <option value="4">Schuppen</option>
+            <option value="5">Chitinpanzer</option>
+          </select><br>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">
+          <label class="dropbtn" for="Element">Element: </label>
+        </div>
+        <div class="content">
+          <select class="dropdown" name="element" id="element">
+            <option value="1">Luft</option>
+            <option value="2">Wasser</option>
+            <option value="3">Land</option>
+            <option value="4">Wasser/Land</option>
+          </select><br>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">
+          <label class="dropbtn" for="aktiv">Aktivitätszeit: </label>
+        </div>
+        <div class="content">
+          <select class="dropdown" name="aktiv" id="aktiv">
+            <option value="1">Tag</option>
+            <option value="2">Nacht</option>
+            <option value="3">Tag und Nacht</option>
+          </select><br>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">
+          <label class="dropbtn" for="ernaehrung">Ernährung: </label>
+        </div>
+        <div class="content">
+          <select class="dropdown" name="ernaehrung" id="ernaehrung">
+            <option value="3">Alles</option>
+            <option value="1">Fleisch</option>
+            <option value="2">Pflanzen</option>
+          </select><br>
+        </div>
+      </div>
+
+  </div> <!-- End Formular Div -->
+  <div id="button">
+    <a href="#" id="btn" onclick="main()">Senden</a>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="data.json"></script>
+  <script src="index.js"></script>
+
+
+</body>
+
+</html>

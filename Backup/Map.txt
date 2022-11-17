@@ -1,0 +1,44 @@
+Art:
+  Säuger: 1;
+  Vogel: 2;
+  Fisch: 3;
+  Kriechtiere: 4;
+  Insekten: 5;
+  Lurch: 6;
+
+Element:
+  Luft: 1;
+  Wasser: 2;
+  Land: 3;
+  Land\/Wasser: 4;
+
+Beine:
+  0: 1;
+  2: 2;
+  4: 3;
+  6: 4;
+  8: 5;
+
+Extremitäten:
+  Keine: 1;
+  Beine: 2;
+  Flossen: 3;
+  Flügel: 4;
+  Flügelbein: 5;
+
+Körperbedeckung:
+  Fell: 1;
+  Federn: 2;
+  Haut: 3;
+  Schuppen: 4;
+  Chitinpanzer: 5;
+
+Aktiv:
+  Tag: 1;
+  Nacht: 2;
+  Tag\/Nacht: 3;
+
+Ernährung: 
+  Fleisch: 1;
+  Pflanzen: 2;
+  Alles: 3;
