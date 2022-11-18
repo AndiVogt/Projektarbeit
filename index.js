@@ -27,7 +27,7 @@ function readJSON() {
     $.ajax({
       'async': false,
       'global': false,
-      'url': "data.json",
+      'url': "https://f5cbfe22-31a2-483b-892a-d637141dcaee.id.repl.co/__replco/devtools_wrapper.html",
       'dataType': "json",
       'success': function(data) {
         json = data;
@@ -65,7 +65,7 @@ function update(jsonObj) {
       type: "GET",
       dataType: 'json',
       async: false,
-      url: 'data_prot.json',
+      url: 'http://localhost:3000',
       data: JSON.stringify(jsonObj),
       success: function() { alert("Thanks!"); },
       failure: function() { alert("Error!"); }
