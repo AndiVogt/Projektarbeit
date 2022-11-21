@@ -27,7 +27,7 @@ function readJSON() {
     $.ajax({
       'async': false,
       'global': false,
-      'url': "https://f5cbfe22-31a2-483b-892a-d637141dcaee.id.repl.co/__replco/devtools_wrapper.html",
+      'url': "data.json",
       'dataType': "json",
       'success': function(data) {
         json = data;
@@ -43,7 +43,6 @@ function readJSON() {
 //adds the form to JSON Object
 function addJSON(json, filled_form) {
   var index = Object.keys(json).length;
-  console.log(filled_form)
   let jsonObj = {
     ...json, [index]: {
       "Name": filled_form[0],
@@ -59,10 +58,24 @@ function addJSON(json, filled_form) {
   return jsonObj;
 };
 
+
+function sendData(jsonObj){
+  jsonString = JSON.stringify(jsonObj)
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("POST", "http://localhost:3000");
+  xhttp.setRequestHeader("Content-type", "json");
+  xhttp.send(jsonString);
+  return jsonString
+}
+ 
+
 function update(jsonObj) {
   $.ajax
     ({
-      type: "GET",
+      type: "POST",
       dataType: 'json',
       async: false,
       url: 'http://localhost:3000',
@@ -72,12 +85,13 @@ function update(jsonObj) {
     });
 };
 
+
 //write user input into JSON file
 function main() {
   let filled_form = returnField();
   let json = readJSON();
   jsonObj = addJSON(json, filled_form);
-  localStorage.setItem('localStored', JSON.stringify(jsonObj));
-  var jsonObj = JSON.parse(localStorage.getItem('localStored'));
-  update(jsonObj);
+  //update(jsonObj);
+  sendData(jsonObj);
+  
 }
