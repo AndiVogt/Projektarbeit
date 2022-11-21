@@ -121,13 +121,23 @@ input[type="radio"] + svg {
 .formular {
   margin: auto;
   text-align: center;
-  align-content: 
 }
-
-
-
 
 #addanimal {
   margin: 0px;
   padding: 0px;
+}
+#anzeigeergebnis {
+  width: 25%;
+  border: 0px solid black;
+  margin: auto;
+  padding: auto;
+  visibility: hidden;
+}
+#anzeigeergebnis img {
+  object-fit: cover;
+  width: 100%;
+}
+#anzeigeergebnis p {
+  font-size: 30px;
 }

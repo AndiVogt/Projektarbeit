@@ -10,6 +10,31 @@ const qanda = [
 ];
 // ---
 
+// URL hinterlegen
+const imgURLs = {
+  "Fledermaus": "/Pictures/bat.jpg",
+  "Katze": "/Pictures/cat.jpg",
+  "Krokodil": "/Pictures/crocodile.jpg",
+  "Hund": "/Pictures/dog.jpg",
+  "Fliege": "/Pictures/fly.jpg",
+  "Frosch": "/Pictures/frog.jpg",
+  "Pferd": "/Pictures/horse.jpg",
+  "Mensch": "/Pictures/human.jpg",
+  "Eidechse": "/Pictures/lizard.jpg",
+  "Muräne": "/Pictures/moray_eel.jpg",
+  "Maus": "/Pictures/mouse.jpg",
+  "Papagei": "/Pictures/parrot.jpg",
+  "Schwein": "/Pictures/pig.jpg",
+  "Seepferdchen": "/Pictures/seahorse.jpg",
+  "Hai": "/Pictures/shark.jpg",
+  "Schlange": "/Pictures/snake.jpg",
+  "Spinne": "/Pictures/spider.jpg",
+  "Rochen": "/Pictures/stingray.jpg",
+  "Zecke": "/Pictures/tick.jpg",
+  "Wal": "/Pictures/whale.jpg"
+};
+//---
+
 // JSON lesen
 var json = (function() {
   var json = null;
@@ -171,9 +196,10 @@ document.getElementById("btn").onclick = function() {
   }
 
   if (json.length == 1) { // wenn nur noch ein Tier übrig
-    alert("Der Name deines Tieres lautet: " + json[0].Name);
-    location.reload(); // Seite neu laden
-    return false;
+    changeImagetoResult(json[0].Name);
+    //alert("Der Name deines Tieres lautet: " + json[0].Name);
+    //location.reload(); // Seite neu laden
+    //return false;
   } else if (json.length == 0) { // wenn kein Tier mehr übrig
     alert("Leider gibt es kein Tier mit diesen Eigenschaften.");
     location.reload();
@@ -228,12 +254,30 @@ function fragenRotieren() {
 };
 // ---
 
+// Bild und Text ändern
+
+function changeImagetoResult(name) {
+  alert("Alert changeImagetoResult; Name: " + name + ", Url: " + imgURLs[name]);
+  document.getElementById("anzeigeergebnisimg").src = imgURLs[name];
+  document.getElementById("ergebnistier").textContent = name;
+  document.getElementById("anzeigeergebnis").style.visibility = "visible";
+}
+
+//---
 
 
 //Tier hinzufügen--------------------------------------------------------------------------------
+var fs = require('fs');
+var jsonObj = JSON.parse(json);
+var jsonContent = JSON.stringify(jsonObj);
 
+fs.writeFile("output.json", jsonContent, 'utf8', function(err) {
+  if (err) {
+    console.log("An error occured while writing JSON Object to File.");
+    return console.log(err);
+  }
 
-
-
+  console.log("JSON file has been saved.");
+});
 //JSON.stringify
 
