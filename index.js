@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 let characteristics = ['name', 'extremitaeten',
   'anzbeine', 'art',
   'koerperbedeckung', 'element',
@@ -65,7 +67,7 @@ function sendData(jsonObj){
   xhttp.onload = function() {
     document.getElementById("demo").innerHTML = this.responseText;
   }
-  xhttp.open("POST", "http://localhost:3000");
+  xhttp.open("POST", "http://localhost:8080/post-test");
   xhttp.setRequestHeader("Content-type", "json");
   xhttp.send(jsonString);
   return jsonString
@@ -78,7 +80,7 @@ function update(jsonObj) {
       type: "POST",
       dataType: 'json',
       async: false,
-      url: 'http://localhost:3000',
+      url: 'http://localhost:8080',
       data: JSON.stringify(jsonObj),
       success: function() { alert("Thanks!"); },
       failure: function() { alert("Error!"); }
@@ -86,12 +88,32 @@ function update(jsonObj) {
 };
 
 
+//const axios = require('axios');
+function postRequest(){
+  axios.post('http://127.0.0.1/post-test', {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  window.alert('test');
+
+}
+
+
+
 //write user input into JSON file
 function main() {
-  let filled_form = returnField();
-  let json = readJSON();
-  jsonObj = addJSON(json, filled_form);
-  //update(jsonObj);
-  sendData(jsonObj);
+  // let filled_form = returnField();
+  // let json = readJSON();
+  // jsonObj = addJSON(json, filled_form);
+  // //update(jsonObj);
+  // sendData(jsonObj);
   
 }
+
+
