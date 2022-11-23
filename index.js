@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 let characteristics = ['name', 'extremitaeten',
   'anzbeine', 'art',
   'koerperbedeckung', 'element',
@@ -67,51 +65,51 @@ function sendData(jsonObj){
   xhttp.onload = function() {
     document.getElementById("demo").innerHTML = this.responseText;
   }
-  xhttp.open("POST", "http://localhost:8080/post-test");
+  xhttp.open("POST", "http://127.0.0.1:8080/post-test");
   xhttp.setRequestHeader("Content-type", "json");
   xhttp.send(jsonString);
   return jsonString
 }
  
+function sendJSON(jsonObj){
+  console.log('NOOT NOOT')
+  $.ajax({
+    type: "POST",
+    dataType: 'json',
+    async: false,
+    url: 'http://127.0.0.1:8080/post-test',
+    data: JSON.stringify(jsonObj),
+    success: function() { alert("Thanks!"); },
+    failure: function() { alert("Error!"); }
+  })
+}
+// function sendJSON(jsonObj){
+//   jsonString = JSON.stringify(jsonObj);
+//   $.post('/post-test', jsonString)
+// }
 
-function update(jsonObj) {
+
+function getJSON() {
   $.ajax
     ({
-      type: "POST",
-      dataType: 'json',
-      async: false,
-      url: 'http://localhost:8080',
-      data: JSON.stringify(jsonObj),
-      success: function() { alert("Thanks!"); },
+      type: "GET",
+      url: 'http://127.0.0.1:8080/get-test',
+      success: function(res) {  console.log(res);},
       failure: function() { alert("Error!"); }
     });
 };
 
 
-//const axios = require('axios');
-function postRequest(){
-  axios.post('http://127.0.0.1/post-test', {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  window.alert('test');
-
-}
 
 
 
 //write user input into JSON file
 function main() {
-  // let filled_form = returnField();
-  // let json = readJSON();
-  // jsonObj = addJSON(json, filled_form);
-  // //update(jsonObj);
+  let filled_form = returnField();
+  let json = readJSON();
+  jsonObj = addJSON(json, filled_form);
+  sendJSON();
+  getJSON();
   // sendData(jsonObj);
   
 }
