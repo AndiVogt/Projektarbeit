@@ -1,3 +1,5 @@
+
+
 let characteristics = ['name', 'extremitaeten',
   'anzbeine', 'art',
   'koerperbedeckung', 'element',
@@ -57,19 +59,6 @@ function addJSON(json, filled_form) {
   };
   return jsonObj;
 };
-
-
-function sendData(jsonObj){
-  jsonString = JSON.stringify(jsonObj)
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("demo").innerHTML = this.responseText;
-  }
-  xhttp.open("POST", "http://127.0.0.1:8080/post-test");
-  xhttp.setRequestHeader("Content-type", "json");
-  xhttp.send(jsonString);
-  return jsonString
-}
  
 function sendJSON(jsonObj){
   console.log('NOOT NOOT')
@@ -81,22 +70,32 @@ function sendJSON(jsonObj){
     data: JSON.stringify(jsonObj),
     success: function() { alert("Thanks!"); },
     failure: function() { alert("Error!"); }
-  })
+  });
 }
-// function sendJSON(jsonObj){
-//   jsonString = JSON.stringify(jsonObj);
-//   $.post('/post-test', jsonString)
-// }
 
+function putJSON(jsonObj){
+  jsonString = JSON.stringify(jsonObj);
+  $.ajax
+  ({
+    type: 'PUT',
+    url: 'http://127.0.0.1:8080/put-test',
+    data: jsonString,
+    success: function(res) {
+      alert('Load was performed.');
+      console.log(res)},
+    failure: function() { alert("Error!"); }
+  });
+}
 
 function getJSON() {
-  $.ajax
-    ({
+  var result = $.ajax
+  ({
       type: "GET",
       url: 'http://127.0.0.1:8080/get-test',
-      success: function(res) {  console.log(res);},
+      success: function(res) {  result = res;},
       failure: function() { alert("Error!"); }
-    });
+    }).responseJSON; //Fehler finden
+    console.log(result)
 };
 
 
@@ -106,12 +105,11 @@ function getJSON() {
 //write user input into JSON file
 function main() {
   let filled_form = returnField();
-  let json = readJSON();
+  let json = getJSON();
+  console.log("JSON vom Server: ",json)
   jsonObj = addJSON(json, filled_form);
-  sendJSON();
-  getJSON();
-  // sendData(jsonObj);
-  
+  putJSON(jsonObj);
+
 }
 
 
