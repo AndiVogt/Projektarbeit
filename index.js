@@ -1,5 +1,3 @@
-
-
 let characteristics = ['name', 'extremitaeten',
   'anzbeine', 'art',
   'koerperbedeckung', 'element',
@@ -60,29 +58,13 @@ function addJSON(json, filled_form) {
   return jsonObj;
 };
  
-function sendJSON(jsonObj){
-  console.log('NOOT NOOT')
-  $.ajax({
-    type: "POST",
-    dataType: 'json',
-    async: false,
-    url: 'http://127.0.0.1:8080/post-test',
-    data: JSON.stringify(jsonObj),
-    success: function() { alert("Thanks!"); },
-    failure: function() { alert("Error!"); }
-  });
-}
-
 function putJSON(jsonObj){
-  jsonString = JSON.stringify(jsonObj);
   $.ajax
   ({
     type: 'PUT',
     url: 'http://127.0.0.1:8080/put-test',
-    data: jsonString,
-    success: function(res) {
-      alert('Load was performed.');
-      console.log(res)},
+    data: jsonObj,
+    success: function(res) {},
     failure: function() { alert("Error!"); }
   });
 }
@@ -92,10 +74,11 @@ function getJSON() {
   ({
       type: "GET",
       url: 'http://127.0.0.1:8080/get-test',
-      success: function(res) {  result = res;},
+      async: false,
+      success: function(res) {  },
       failure: function() { alert("Error!"); }
     }).responseJSON; //Fehler finden
-    console.log(result)
+    return result
 };
 
 
@@ -105,10 +88,10 @@ function getJSON() {
 //write user input into JSON file
 function main() {
   let filled_form = returnField();
-  let json = getJSON();
-  console.log("JSON vom Server: ",json)
+  json = getJSON();
   jsonObj = addJSON(json, filled_form);
   putJSON(jsonObj);
+  
 
 }
 
