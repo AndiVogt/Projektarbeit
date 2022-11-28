@@ -57,41 +57,43 @@ function addJSON(json, filled_form) {
   };
   return jsonObj;
 };
-
-
-function sendData(jsonObj){
-  jsonString = JSON.stringify(jsonObj)
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("demo").innerHTML = this.responseText;
-  }
-  xhttp.open("POST", "http://localhost:3000");
-  xhttp.setRequestHeader("Content-type", "json");
-  xhttp.send(jsonString);
-  return jsonString
-}
  
-
-function update(jsonObj) {
+function putJSON(jsonObj){
   $.ajax
-    ({
-      type: "POST",
-      dataType: 'json',
+  ({
+    type: 'PUT',
+    url: 'http://127.0.0.1:8080/put-test',
+    data: jsonObj,
+    success: function(res) {},
+    failure: function() { alert("Error!"); }
+  });
+}
+
+function getJSON() {
+  var result = $.ajax
+  ({
+      type: "GET",
+      url: 'http://127.0.0.1:8080/get-test',
       async: false,
-      url: 'http://localhost:3000',
-      data: JSON.stringify(jsonObj),
-      success: function() { alert("Thanks!"); },
+      success: function(res) {  },
       failure: function() { alert("Error!"); }
-    });
+    }).responseJSON; //Fehler finden
+    return result
 };
+
+
+
 
 
 //write user input into JSON file
 function main() {
   let filled_form = returnField();
-  let json = readJSON();
+  json = getJSON();
   jsonObj = addJSON(json, filled_form);
-  //update(jsonObj);
-  sendData(jsonObj);
+  console.log(jsonObj);
+  putJSON(jsonObj);
   
+
 }
+
+
