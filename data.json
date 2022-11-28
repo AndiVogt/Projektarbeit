@@ -42,7 +42,7 @@
   "Name": "Schwein",
   "Beine": 3,
   "Extremitäten": 2,
-  "Körperbedeckung": 1,
+  "Körperbedeckung": 3,
   "Element": 3,
   "Ernährung": 3,
   "Art": 1,
@@ -171,6 +171,16 @@
  },
  {
   "Name": "Papagei",
+  "Beine": 2,
+  "Extremitäten": 4,
+  "Körperbedeckung": 2,
+  "Element": 3,
+  "Ernährung": 3,
+  "Art": 2,
+  "Aktiv": 1
+ },
+ {
+  "Name": "Papagei2",
   "Beine": 2,
   "Extremitäten": 4,
   "Körperbedeckung": 2,
