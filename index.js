@@ -90,6 +90,7 @@ function main() {
   let filled_form = returnField();
   json = getJSON();
   jsonObj = addJSON(json, filled_form);
+  console.log(jsonObj);
   putJSON(jsonObj);
   
 
