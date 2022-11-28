@@ -179,33 +179,42 @@ var qIndex = createShuffledArray(qanda.length); // Index an Fragen durchgemischt
 document.getElementById("btn").onclick = function() {
   // Funktion wenn der Knopf gedrückt wird
 
-  var currentA = document.getElementById("answform").elements["answoptions"].value;
-  // Daumen hoch oder runter ermitteln
-
-  if (currentA == "ja") { // wenn "ja"
-    filterJSONTrue(randQ1, randQ2); // Funktion ausführen 
-    // console.log(json);
-    qIndex = qIndex.filter(elem => elem != randQ1); // die Frage aus 'qIndex' (Fragenpool) entfernen, da sie mit 'Ja' beantwortet wurde
-    // console.log("Fragen noch übrig: " + qIndex);
-  } else if (currentA == "nein") { // wenn "nein"
-    filterJSONFalse(randQ1, randQ2); // Funktion ausführen
-    //console.log(json);
-
-  } else { // nichts ausgewählt nach Knopfdruck
-    alert("Achtung! Bitte wählen eine Antwort.");
-  }
-
-  if (json.length == 1) { // wenn nur noch ein Tier übrig
-    changeImagetoResult(json[0].Name);
-    //alert("Der Name deines Tieres lautet: " + json[0].Name);
-    //location.reload(); // Seite neu laden
-    //return false;
-  } else if (json.length == 0) { // wenn kein Tier mehr übrig
-    alert("Leider gibt es kein Tier mit diesen Eigenschaften.");
+  //gucken ob Button schon Neustart verursachen soll
+  if (document.getElementById("btn").innerHTML == "Neustart") {
     location.reload();
     return false;
-  } else { // sonst Funktion fragenRotieren() >> nächste Frage einleiten
-    fragenRotieren();
+  } else {
+
+    var currentA = document.getElementById("answform").elements["answoptions"].value;
+    // Daumen hoch oder runter ermitteln
+
+    if (currentA == "ja") { // wenn "ja"
+      filterJSONTrue(randQ1, randQ2); // Funktion ausführen 
+      // console.log(json);
+      qIndex = qIndex.filter(elem => elem != randQ1); // die Frage aus 'qIndex' (Fragenpool) entfernen, da sie mit 'Ja' beantwortet wurde
+      // console.log("Fragen noch übrig: " + qIndex);
+    } else if (currentA == "nein") { // wenn "nein"
+      filterJSONFalse(randQ1, randQ2); // Funktion ausführen
+      //console.log(json);
+
+    } else { // nichts ausgewählt nach Knopfdruck
+      alert("Achtung! Bitte wähle eine Antwort!");
+    }
+
+    if (json.length == 1) { // wenn nur noch ein Tier übrig
+      changeImagetoResult(json[0].Name);
+      //alert("Der Name deines Tieres lautet: " + json[0].Name);
+      //location.reload(); // Seite neu laden
+      //return false;
+    } else if (json.length == 0) { // wenn kein Tier mehr übrig
+      alert("Kein hinterlegtes Tier hat diese Eigenschaften!");
+      //document.getElementById("frageID").textContent = "Kein hinterlegtes Tier hat diese Eigenschaften!";
+      //changeButton(99);
+      location.reload();
+      return false;
+    } else { // sonst Funktion fragenRotieren() >> nächste Frage einleiten
+      fragenRotieren();
+    }
   }
 };
 // ---
@@ -224,7 +233,7 @@ function fragenRotieren() {
   let sumArray = []; // Blankoarray
   let randOrder = createShuffledArray(Object.keys(json[0]).length - 1); // zufällige Reihenfolge an Fragenanzahl
   randOrder = randOrder.filter(val => qIndex.includes(val)); // schon benutzte Fragen entfernen
-  console.log(randOrder + ", " + qIndex);
+  console.log(randOrder + " - " + qIndex);
   for (let x = 0; x < randOrder.length; x++) { // Für jede verbleibende Fragen/Eigenschaft ein Durchlauf
     for (var yPush = 0; yPush < json.length; yPush++) { // Für jedes verbleibende Tier ein Durchlauf
       sumArray.push(JSONxy(randOrder[x], yPush)); // Hier werden die verschiedenen noch offenen Möglichkeiten einer zufälligen Eigenschaft aufgelistet 
@@ -237,47 +246,58 @@ function fragenRotieren() {
         for (i = 0; i < json.length; i++) {
           remainJSON.push(json[i].Name);
         }
-        alert("Es haben mehrere Tiere diese Eigenschaften: " + remainJSON);
+        alert("Folgende Tiere haben diese Eigenschaften: " + remainJSON);
         location.reload();
         return false;
+        /*
+        document.getElementById("frageID").textContent = "Folgende Tiere haben diese Eigenschaften: " + remainJSON;
+        console.log("HIERRR");
+        changeButton(99);
+        x = randOrder.length + 1;
+        yPush = json.length + 1;
+        */
       }
       fragenRotieren();
-      continue;
     } else {
       randQ1 = randOrder[x]; // neu ermittelte Frage wird eingestellt 
       randQ2 = sumArray[0]; // neu ermittelte Frage wird eingestellt
       uncheckRadio();
       document.getElementById("frageID").textContent = qanda[randQ1][0] + qanda[randQ1][randQ2]; // Frage ändern
+      console.log("geändert!");
       x = randOrder.length + 1; // Schleife beenden
     }
   }
+  console.log(randQ1 + ", " + randQ2);
 };
 // ---
 
 // Bild und Text ändern
-
 function changeImagetoResult(name) {
-  alert("Alert changeImagetoResult; Name: " + name + ", Url: " + imgURLs[name]);
+  //salert("Alert changeImagetoResult; Name: " + name + ", Url: " + imgURLs[name]);
   document.getElementById("anzeigeergebnisimg").src = imgURLs[name];
   document.getElementById("ergebnistier").textContent = name;
   document.getElementById("anzeigeergebnis").style.visibility = "visible";
+  changeButton(1);
 }
-
 //---
 
+// Button und Knöpfe ändern
+function changeButton(id) {
+  document.getElementById("answer").style.visibility = "hidden";
+  document.getElementById("btn").innerHTML = "Neustart";
 
-//Tier hinzufügen--------------------------------------------------------------------------------
-var fs = require('fs');
-var jsonObj = JSON.parse(json);
-var jsonContent = JSON.stringify(jsonObj);
-
-fs.writeFile("output.json", jsonContent, 'utf8', function(err) {
-  if (err) {
-    console.log("An error occured while writing JSON Object to File.");
-    return console.log(err);
+  switch (id) {
+    case 1:
+      document.getElementById("frageID").textContent = "Der Name deines Tieres lautet:";
+      break;
+    case 99:
+      break;
   }
 
-  console.log("JSON file has been saved.");
-});
+}
+//---
+
+//Tier hinzufügen--------------------------------------------------------------------------------
+
 //JSON.stringify
 
