@@ -12,43 +12,47 @@ const qanda = [
 
 // URL hinterlegen
 const imgURLs = {
-  "Fledermaus": "/Pictures/bat.jpg",
-  "Katze": "/Pictures/cat.jpg",
-  "Krokodil": "/Pictures/crocodile.jpg",
-  "Hund": "/Pictures/dog.jpg",
-  "Fliege": "/Pictures/fly.jpg",
-  "Frosch": "/Pictures/frog.jpg",
-  "Pferd": "/Pictures/horse.jpg",
-  "Mensch": "/Pictures/human.jpg",
-  "Eidechse": "/Pictures/lizard.jpg",
-  "Muräne": "/Pictures/moray_eel.jpg",
-  "Maus": "/Pictures/mouse.jpg",
-  "Papagei": "/Pictures/parrot.jpg",
-  "Schwein": "/Pictures/pig.jpg",
-  "Seepferdchen": "/Pictures/seahorse.jpg",
-  "Hai": "/Pictures/shark.jpg",
-  "Schlange": "/Pictures/snake.jpg",
-  "Spinne": "/Pictures/spider.jpg",
-  "Rochen": "/Pictures/stingray.jpg",
-  "Zecke": "/Pictures/tick.jpg",
-  "Wal": "/Pictures/whale.jpg"
+  "Fledermaus": "./Pictures/bat.jpg",
+  "Katze": "./Pictures/cat.jpg",
+  "Krokodil": "./Pictures/crocodile.jpg",
+  "Hund": "./Pictures/dog.jpg",
+  "Fliege": "./Pictures/fly.jpg",
+  "Frosch": "./Pictures/frog.jpg",
+  "Pferd": "./Pictures/horse.jpg",
+  "Mensch": "./Pictures/human.jpg",
+  "Eidechse": "./Pictures/lizard.jpg",
+  "Muräne": "./Pictures/moray_eel.jpg",
+  "Maus": "./Pictures/mouse.jpg",
+  "Papagei": "./Pictures/parrot.jpg",
+  "Schwein": "./Pictures/pig.jpg",
+  "Seepferdchen": "./Pictures/seahorse.jpg",
+  "Hai": "./Pictures/shark.jpg",
+  "Schlange": "./Pictures/snake.jpg",
+  "Spinne": "./Pictures/spider.jpg",
+  "Rochen": "./Pictures/stingray.jpg",
+  "Zecke": "./Pictures/tick.jpg",
+  "Wal": "./Pictures/whale.jpg"
 };
 //---
 
 // JSON lesen
-var json = (function() {
-  var json = null;
-  $.ajax({
-    'async': false,
-    'global': false,
-    'url': "data.json",
-    'dataType': "json",
-    'success': function(data) {
-      json = data;
-    }
-  });
-  return json;
-})();
+var json = $.ajax
+  ({
+      type: "GET",
+      url: 'http://127.0.0.1:8080/get-test',
+      async: false,
+      success: function(res) {  },
+      failure: function() { alert("Error!"); }
+    }).responseJSON; 
+
+json = Object.entries(json);
+
+for (let r = 0; r < json.length; r++) {
+  json[r] = json[r][1];
+}
+
+console.log(json);
+
 //---
 
 // Zufallsfunktionen
